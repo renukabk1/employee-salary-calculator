@@ -1,1 +1,0 @@
-/usr/bin/c++ -Wl,--dependency-file=CMakeFiles/EmployeeSalaryCalculator.dir/link.d CMakeFiles/EmployeeSalaryCalculator.dir/src/main.cpp.o CMakeFiles/EmployeeSalaryCalculator.dir/src/Employee.cpp.o CMakeFiles/EmployeeSalaryCalculator.dir/src/SalaryCalculator.cpp.o -o EmployeeSalaryCalculator
