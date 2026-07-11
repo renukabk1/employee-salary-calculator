@@ -1,0 +1,73 @@
+pipeline {
+    agent any
+
+    stages {
+
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
+
+        stage('Configure') {
+            steps {
+                sh '''
+                mkdir -p build
+                cd build
+                cmake ..
+                '''
+            }
+        }
+
+        stage('Parallel Build') {
+            parallel {
+
+                stage('Compile') {
+                    steps {
+                        sh '''
+                        cd build
+                        make
+                        '''
+                    }
+                }
+
+                stage('Static Check') {
+                    steps {
+                        sh '''
+                        echo "Running Static Analysis..."
+                        '''
+                    }
+                }
+
+                stage('Unit Test') {
+                    steps {
+                        sh '''
+                        cd build
+                        ctest || true
+                        '''
+                    }
+                }
+            }
+        }
+
+        stage('Archive') {
+            steps {
+                archiveArtifacts artifacts: 'build/SmartHome', fingerprint: true
+            }
+        }
+    }
+
+    post {
+        success {
+            echo 'Build Successful'
+        }
+
+        failure {
+            echo 'Build Failed'
+        }
+
+        always {
+            echo 'Pipeline Finished'
+        }
+    }
+}
