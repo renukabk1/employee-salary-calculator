@@ -1,0 +1,3 @@
+/home/ubuntu/employee-salary-calculator/build/CMakeFiles/EmployeeSalaryCalculator.dir
+/home/ubuntu/employee-salary-calculator/build/CMakeFiles/edit_cache.dir
+/home/ubuntu/employee-salary-calculator/build/CMakeFiles/rebuild_cache.dir

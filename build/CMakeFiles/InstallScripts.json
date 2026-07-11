@@ -1,0 +1,7 @@
+{
+	"InstallScripts" : 
+	[
+		"/home/ubuntu/employee-salary-calculator/build/cmake_install.cmake"
+	],
+	"Parallel" : false
+}
